@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Sascha Jullmann">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure Javascript Counter</title>
+  <link rel="stylesheet" href="tachyons.min.css">
+</head>
+<body>
+	<article class="vh-25 dt w-100 pa3 ph5-ns bg-dark-pink">
+    <div class="dtc i v-mid w-50">
+			<h2 class="f7 f2-m f1-l fw6">Easy Countdown</h2>
+    </div>
+    <div class="dtc v-mid w-50 tr">
+			<a class="link dim black dib br-100 h2 w2 mr3 " href="#" title="">
+				<svg data-icon="github" viewBox="0 0 32 32" style="fill:currentcolor">
+					<title>github icon</title>
+					<path d="M0 18 C0 12 3 10 3 9 C2.5 7 2.5 4 3 3 C6 3 9 5 10 6 C12 5 14 5 16 5 C18 5 20 5 22 6 C23 5 26 3 29 3 C29.5 4 29.5 7 29 9 C29 10 32 12 32 18 C32 25 30 30 16 30 C2 30 0 25 0 18 M3 20 C3 24 4 28 16 28 C28 28 29 24 29 20 C29 16 28 14 16 14 C4 14 3 16 3 20 M8 21 A1.5 2.5 0 0 0 13 21 A1.5 2.5 0 0 0 8 21 M24 21 A1.5 2.5 0 0 0 19 21 A1.5 2.5 0 0 0 24 21 z"></path>
+				</svg>
+			</a>
+      <a class="link dim black dib h2 w2 br-100 mr3 " href="#" title="">
+        <svg data-icon="twitter" viewBox="0 0 32 32" style="fill:currentcolor">
+          <title>twitter icon</title>
+          <path d="M2 4 C6 8 10 12 15 11 A6 6 0 0 1 22 4 A6 6 0 0 1 26 6 A8 8 0 0 0 31 4 A8 8 0 0 1 28 8 A8 8 0 0 0 32 7 A8 8 0 0 1 28 11 A18 18 0 0 1 10 30 A18 18 0 0 1 0 27 A12 12 0 0 0 8 24 A8 8 0 0 1 3 20 A8 8 0 0 0 6 19.5 A8 8 0 0 1 0 12 A8 8 0 0 0 3 13 A8 8 0 0 1 2 4"></path>
+        </svg>
+      </a>
+    </div>
+	</article>
+	<article class="vh-50 dt w-100 bg-dark-pink">
+		<div class="w-25 dtc v-mid tc black ph3 ph4-l">
+			<h2 class="f7 f3-m f2-l fw6">Days</h2>
+			<h1 id="days" class="f6 f2-m f-subheadline-l fw6 tc"><span>--</span></h1>
+		</div>
+		<div class="w-25 dtc v-mid tc black ph3 ph4-l">
+			<h2 class="f7 f3-m f2-l fw6">Hours</h2>
+			<h1 id="hours" class="f6 f2-m f-subheadline-l fw6 tc"><span>--</span></h1>
+		</div>
+		<div class="w-25 dtc v-mid tc black ph3 ph4-l">
+			<h2 class="f7 f3-m f2-l fw6">Minutes</h2>
+			<h1 id="minutes" class="f6 f2-m f-subheadline-l fw6 tc"><span>--</span></h1>
+		</div>
+		<div class="w-25 dtc v-mid tc black ph3 ph4-l">
+			<h2 class="f7 f3-m f2-l fw6">Seconds</h2>
+			<h1 id="seconds" class="f6 f2-m f-subheadline-l fw6 tc"><span>--</span></h1>
+		</div>
+	</article> 
+	<article class="vh-25 dt w-100 bg-dark-pink">
+		<div class="pa4-l v-mid">
+			<form class="mw7 center pa4 br2-ns ba b--black-90">
+				<fieldset class="cf bn ma0 pa0">
+					<legend id="currentDate" class="pa0 f5 f4-ns mb3 black fw6">Enter your date</legend>
+					<div class="cf">
+						<label class="clip" for="form">Date</label>
+						<input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="Year-Month-Day Hour:Minute" type="text" name="email-address" value="" id="form">
+						<input class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns" value="Start" id="btn">
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</article>
+
+  <script src="script.js"></script>
+</body>
+</html>
