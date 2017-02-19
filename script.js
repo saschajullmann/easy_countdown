@@ -18,7 +18,6 @@ document.myForm.addEventListener("submit", function(e) {
   localStorage.setItem("date", myDate);
   let currentText = `Enter your date (Current Date: ${myDate})`;
   currentDate.textContent = currentText;
-  return false;
 });
 
 function createCounter(ms) {
