@@ -4,11 +4,10 @@ const idHours = document.getElementById('hours');
 const idMinutes = document.getElementById('minutes');
 const idSeconds = document.getElementById('seconds');
 const currentDate = document.getElementById('currentDate');
-const form = document.getElementById('form');
-const button = document.getElementById('btn');
 let countdown;
 
-button.addEventListener("click", function() {
+document.myForm.addEventListener("submit", function(e) {
+  e.preventDefault();
   clearInterval(countdown);
   const myDate = form.value;
   prepareCounter(myDate);
