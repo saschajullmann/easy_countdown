@@ -1,23 +1,35 @@
-const counter = document.getElementById('counter');
+const counterName = document.getElementById('counter_name');
+const counterDate = document.getElementById('counter_date');
+const counterTime = document.getElementById('counter_time');
+const counterHeader = document.getElementById('counter_header');
+const counterForm = document.myForm;
 const idDays = document.getElementById('days');
 const idHours = document.getElementById('hours');
 const idMinutes = document.getElementById('minutes');
 const idSeconds = document.getElementById('seconds');
-const currentDate = document.getElementById('currentDate');
+const currentDate = document.getElementById('current_date');
 let countdown;
 
-document.myForm.addEventListener("submit", function(e) {
+counterForm.addEventListener("submit", function(e) {
   e.preventDefault();
   clearInterval(countdown);
-  const myDate = form.value;
-  prepareCounter(myDate);
+  const myDate = counterDate.value;
+  const myName = counterName.value;
+  const myTime = counterTime.value;
+  const myDateTime = `${myDate} ${myTime}`;
+  prepareCounter(myDateTime);
   countdown = setInterval(function() {
-    prepareCounter(myDate)
+    prepareCounter(myDateTime)
   }, 1000);
-  form.value = '';
+  counterDate.value = '';
+  counterName.value = '';
+  counterTime.value = '00:00';
   localStorage.setItem("date", myDate);
-  let currentText = `Enter your date (Current Date: ${myDate})`;
+  localStorage.setItem("time", myTime);
+  localStorage.setItem("name", myName);
+  let currentText = `Enter your date (Current Date: ${myDate} ${myTime})`;
   currentDate.textContent = currentText;
+  counterHeader.textContent = myName;
 });
 
 function createCounter(ms) {
@@ -68,14 +80,23 @@ function prepareCounter(dateValue) {
 
 window.onload = function() {
   let myDateString = localStorage.getItem("date");
+  let myName = localStorage.getItem("name");
   let myDate = new Date(myDateString);
+  let mySecondDate = Date.parse(myDateString);
+  let myDateMs = myDate.getTime();
   let now = Date.now() 
-  let myCurrentDifference = myDate - now;
+  let myCurrentDifference = myDateMs - now;
+  var mySecondDifference = parseInt(myDate - now);
+  console.log({myDateString, myName, myDate, mySecondDate, now, mySecondDifference, myCurrentDifference})
   if(myDateString != null && myCurrentDifference > 0) {
     countdown = setInterval(function() {
       prepareCounter(myDateString);
     }, 1000);
     let currentText = document.createTextNode(` (Current Date: ${myDateString})`);
     currentDate.appendChild(currentText);
+    counterHeader.textContent = myName;
+  }
+  else {
+    counterTime.value = "00:00";
   }
 };

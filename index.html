@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="tachyons.min.css">
 </head>
 <body class="bg-dark-pink">
-	<article class="vh-25 dt w-100 pa3 ph5-ns bg-dark-pink">
+	<article class="dt w-100 pa1 ph5-ns bg-dark-pink">
     <div class="dtc i v-mid w-50">
-			<h2 class="f7 f2-m f1-l fw6">Easy Countdown</h2>
+			<h2 id="counter_header" class="f7 f2-m f1-l fw6">Easy Countdown</h2>
     </div>
     <div class="dtc v-mid w-50 tr">
 			<a class="link dim black dib br-100 h2 w2 mr3 " href="https://github.com/saschajullmann/easy_countdown" title="Easy Countdown Github Repo">
@@ -27,7 +27,7 @@
       </a>
     </div>
 	</article>
-	<article class="vh-50 dt w-100 bg-dark-pink">
+	<article class="vh-25 dt w-100 bg-dark-pink">
 		<div class="w-25 dtc v-mid tc black ph3 ph4-l">
 			<h2 class="f6 f3-m f2-l fw6">Days</h2>
 			<h1 id="days" class="f6 f2-m f-subheadline-l fw6 tc"><span>--</span></h1>
@@ -45,15 +45,25 @@
 			<h1 id="seconds" class="f6 f2-m f-subheadline-l fw6 tc"><span>--</span></h1>
 		</div>
 	</article> 
-	<article class="vh-25 dt w-100 bg-dark-pink">
-		<div class="pa4-l v-mid">
+	<article class="pt4 vh-50 dt w-100 bg-dark-pink">
+		<div class="mb3 v-mid">
 			<form name="myForm" class="mw7 center pa4 br2-ns ba-l b--black-90">
-				<fieldset class="cf bn ma0 pa0">
-					<legend id="currentDate" class="pa0 f5 f4-ns mb3 black fw6">Enter your date</legend>
-					<div class="cf">
-						<label class="clip" for="form">Date</label>
-						<input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="Year-Month-Day Hour:Minute" type="text" id="form">
-            <button class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns" id="btn">Start</button>
+				<fieldset class="bn ma0 pa0">
+					<legend id="current_date" class="pa0 f5 f4-ns mb3 black fw6">Enter your date</legend>
+          <div class="mt3 mb5">
+            <label class="db fw6 lh-copy f6" for="email-address">Counter-Name</label>
+						<input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 br2-ns" placeholder="Name" type="text" id="counter_name">
+          </div>
+          <div class="mt3 mb5">
+            <label class="db fw6 lh-copy f6" for="email-address">Date (Year-Month-Day)</label>
+						<input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 br2-ns" placeholder="Year-Month-Day" type="text" id="counter_date">
+          </div>
+          <div class="mt3 mb5">
+            <label class="db fw6 lh-copy f6" for="email-address">Time (Hour:Minute)</label>
+						<input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 br2-ns" placeholder="Hour:Minute" type="text" id="counter_time">
+          </div>
+					<div class="mt3">
+            <button class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 br2-ns" id="btn">Start</button>
 					</div>
 				</fieldset>
 			</form>
