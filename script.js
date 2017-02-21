@@ -16,10 +16,9 @@ counterForm.addEventListener("submit", function(e) {
   const myDate = counterDate.value;
   const myName = counterName.value;
   const myTime = counterTime.value;
-  const myDateTime = `${myDate} ${myTime}`;
-  prepareCounter(myDateTime);
+  prepareCounter(createDate(myDate, myTime));
   countdown = setInterval(function() {
-    prepareCounter(myDateTime)
+    prepareCounter(createDate(myDate, myTime))
   }, 1000);
   counterDate.value = '';
   counterName.value = '';
@@ -78,25 +77,29 @@ function prepareCounter(dateValue) {
   }
 };
 
+function createDate(dateString, timeString) {
+  const newDate = new Date(dateString);
+  const myTimeArray = timeString.split(":");
+  newDate.setHours(myTimeArray[0]);
+  newDate.setMinutes(myTimeArray[1]);
+  return newDate;
+};
+
 window.onload = function() {
   let myDateString = localStorage.getItem("date");
   let myName = localStorage.getItem("name");
-  let myDate = new Date(myDateString);
-  let mySecondDate = Date.parse(myDateString);
-  let myDateMs = myDate.getTime();
+  let myTime = localStorage.getItem("time");
+  let myDate = createDate(myDateString, myTime);
   let now = Date.now() 
-  let myCurrentDifference = myDateMs - now;
-  var mySecondDifference = parseInt(myDate - now);
-  console.log({myDateString, myName, myDate, mySecondDate, now, mySecondDifference, myCurrentDifference})
+  let myCurrentDifference =  myDate - now;
+  console.log({myCurrentDifference})
   if(myDateString != null && myCurrentDifference > 0) {
     countdown = setInterval(function() {
-      prepareCounter(myDateString);
+      prepareCounter(myDate);
     }, 1000);
     let currentText = document.createTextNode(` (Current Date: ${myDateString})`);
     currentDate.appendChild(currentText);
     counterHeader.textContent = myName;
   }
-  else {
-    counterTime.value = "00:00";
-  }
+  counterTime.value = "00:00";
 };
